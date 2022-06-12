@@ -1,10 +1,10 @@
-name: Crawl bonbanh.com
+name: Crawl dataset
 on: 
   schedule:
     - cron: '15 0 * * *'
   push:
     branches:
-      - 'f/crawl'
+      - 'main'
 
 jobs:
   crawl-data:
