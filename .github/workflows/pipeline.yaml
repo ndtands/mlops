@@ -2,6 +2,8 @@ name: ML Pipeline
 on:
   repository_dispatch:
     types: [build]
+  push:
+    - 'master'
 jobs:
   Pipeline:
     runs-on: ubuntu-18.04
