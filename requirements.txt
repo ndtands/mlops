@@ -7,3 +7,4 @@ bs4
 python-decouple
 pandas
 wandb
+tensorflow-data-validation
