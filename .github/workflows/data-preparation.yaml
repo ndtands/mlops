@@ -2,7 +2,7 @@ name: Test data preparation
 on:
   push:
     branches:
-      - "main"
+      - "master"
 jobs:
   data-preparation:
     runs-on: ubuntu-18.04
