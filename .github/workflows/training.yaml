@@ -2,7 +2,7 @@ name: Test training
 on:
   push:
     branches:
-      - "master"
+      - "f/training"
 jobs:
   training:
     runs-on: ubuntu-18.04
