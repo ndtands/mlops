@@ -2,7 +2,7 @@ name: Data extraction
 on: 
   push:
     branches:
-      - 'f/data-extraction-v1'
+      - 'main'
 
 jobs:
   data-extraction:
