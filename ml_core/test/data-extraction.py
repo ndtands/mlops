@@ -12,6 +12,5 @@ if __name__ == '__main__':
     client = MongoClient(MONGODB_URL)
     db=client[DATASOURCE]
     collection_post = db.data
-    df = data_extraction.fetch_data(collection=collection_post)
-    logger.info(f'len of data raw :{len(df)}')
+    df = data_extraction.extract_data(project='mlops', collection=collection_post)
     logger.info("Data extract Done")
