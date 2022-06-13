@@ -24,4 +24,5 @@ jobs:
         run: wandb login ${{ secrets.WANDB_KEY}}
       - name: Test pipeline
         run: |
+          export PYTHONPATH=.
           python3 ml_core/test/data-preparation.py
