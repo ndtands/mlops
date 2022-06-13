@@ -3,7 +3,8 @@ on:
   repository_dispatch:
     types: [train]
   push:
-    - 'master'
+    branches:
+      - 'master'
 jobs:
   Pipeline:
     runs-on: ubuntu-18.04
