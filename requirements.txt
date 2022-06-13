@@ -8,3 +8,4 @@ python-decouple
 pandas
 wandb
 tensorflow-data-validation
+tensorflow
