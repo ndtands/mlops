@@ -72,7 +72,7 @@ if __name__ =='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_thread', type=int, default=3)
     parser.add_argument('--start_page', type=int, default=0)
-    parser.add_argument('--end_page', type=int, default=5)
+    parser.add_argument('--end_page', type=int, default=10)
 
 
     args = parser.parse_args()
@@ -85,7 +85,7 @@ if __name__ =='__main__':
     MONGODB_URL = f'mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@cluster0.vk4zird.mongodb.net/test'
     client = MongoClient(MONGODB_URL)
     db=client[DATASOURCE]
-    collection_post = db.data
+    collection_post = db.post
 
     # Init pages
     pages_threads = divide_thread(
@@ -98,4 +98,3 @@ if __name__ =='__main__':
         number_thread=number_thread,
         upload=collection_post
     )
-

@@ -17,18 +17,18 @@ def extract_detail2(detail: bs4.element.Tag) -> dict:
     lst = text.replace('Loading...','').split('»')
     dicct = {}
     if len(lst) == 6:
-        dicct['branch'] = lst[2].strip()
-        dicct['_class'] = lst[3].strip()
+        dicct['branch'] = norm_branch(lst[2].strip())
+        dicct['_class'] = norm_class(lst[3].strip())
         dicct['year_manufacture'] = int(lst[4])
         dicct['_id'] = get_id(lst[5])
     elif len(lst) == 5:
-        dicct['branch'] = lst[2].strip()
-        dicct['_class'] = lst[3].strip()
+        dicct['branch'] = norm_branch(lst[2].strip())
+        dicct['_class'] = norm_class(lst[3].strip())
         dicct['year_manufacture'] = get_number(lst[4])
         dicct['_id'] = get_id(lst[4])
     elif len(lst) == 4:
-        dicct['branch'] = lst[2].strip()
-        dicct['_class'] = '-'
+        dicct['branch'] = norm_branch(lst[2].strip())
+        dicct['_class'] = 'other'
         dicct['year_manufacture'] = get_number(lst[3])
         dicct['_id'] = get_id(lst[3])
     return dicct
@@ -66,3 +66,4 @@ def extract_page(url: str) -> dict:
     d1.update(d2)
     d1.update(d3)
     return d1
+    
