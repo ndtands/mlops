@@ -1,7 +1,5 @@
 name: Crawl bonbanh.com
 on: 
-  schedule:
-    - cron: '15 0 * * *'
   push:
     branches:
       - 'f/crawl'
@@ -26,4 +24,4 @@ jobs:
       - name: Crawl data
         run: |
           export PYTHONPATH=.
-          python3 crawling/threader.py
+          echo 'DONE'
