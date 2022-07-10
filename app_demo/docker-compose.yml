@@ -1,0 +1,13 @@
+version: '2.2'
+
+services:
+  api:
+    build: ./api
+    ports:
+      -  8010:8010
+  
+  app:
+    build: ./app
+    ports:
+    - 8011:8011
+    
