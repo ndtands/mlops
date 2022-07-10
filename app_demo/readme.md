@@ -20,7 +20,13 @@ make app
 
 ```
 # Buiding Docker file
-sudo docker build -t mlops_api:latest .
+make build
+
+# Start app
+make start-app
+
+#Stop app
+make stop-app
 ```
 
 ## Some Resulst
