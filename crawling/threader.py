@@ -41,6 +41,7 @@ def thread_function(pages: list, thread_id: int, upload: pymongo.collection.Coll
                 logger.error(f'Errorr page: {p}, with link: {i}, with err: {str(e)}')
             try:
                 #pass
+                print(post)
                 upload.insert_one(post)
                 print('upload done')
             except Exception as e:
@@ -73,7 +74,7 @@ if __name__ =='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_thread', type=int, default=4)
     parser.add_argument('--start_page', type=int, default=0)
-    parser.add_argument('--end_page', type=int, default=1500)
+    parser.add_argument('--end_page', type=int, default=4)
 
 
     args = parser.parse_args()
