@@ -31,19 +31,20 @@ def thread_function(pages: list, thread_id: int, upload: pymongo.collection.Coll
             for l in a:
                 link = l['href']
                 all_link.append(link)
-        except:
-            logger.error(f'Errorr page {p}')
+        except Exception as e:
+            logger.error(f'Errorr page {p} with err: {str(e)}')
         for i in all_link:
             try:
                 post = extract_page(i)
                 time.sleep(0.01)
-            except:
-                logger.error(f'Errorr page: {p}, with link: {i}')
+            except Exception as e:
+                logger.error(f'Errorr page: {p}, with link: {i}, with err: {str(e)}')
             try:
                 #pass
                 upload.insert_one(post)
-            except:
-                pass
+                print('upload done')
+            except Exception as e:
+                logger.error(f'Errorr Upload in page: {p}, with link: {i}, with err: {str(e)}')
         time.sleep(0.05)
 
 def main(pages_threads: list, number_thread: int, upload: pymongo.collection.Collection) -> None:
