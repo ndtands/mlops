@@ -36,7 +36,7 @@ def thread_function(pages: list, thread_id: int, upload: pymongo.collection.Coll
         for i in all_link:
             try:
                 post = extract_page(i)
-                time.sleep(0.01)
+                time.sleep(0.1)
             except Exception as e:
                 logger.error(f'Errorr page: {p}, with link: {i}, with err: {str(e)}')
             try:
@@ -46,7 +46,7 @@ def thread_function(pages: list, thread_id: int, upload: pymongo.collection.Coll
                 print('upload done')
             except Exception as e:
                 logger.error(f'Errorr Upload in page: {p}, with link: {i}, with err: {str(e)}')
-        time.sleep(0.05)
+        time.sleep(0.09)
 
 def main(pages_threads: list, number_thread: int, upload: pymongo.collection.Collection) -> None:
     try:
@@ -81,12 +81,12 @@ if __name__ =='__main__':
     number_thread = args.num_thread
     start_page = args.start_page
     end_page = args.end_page
-#     MONGODB_USER = config('MONGODB_USER')
-#     MONGODB_PASSWORD = config('MONGODB_PASSWORD')
-#     DATASOURCE = config('DATASOURCE')
-    MONGODB_USER = 'tannd22'
-    MONGODB_PASSWORD = '9RkRFEEjG4y5oPti'
-    DATASOURCE = 'test'
+    MONGODB_USER = config('MONGODB_USER')
+    MONGODB_PASSWORD = config('MONGODB_PASSWORD')
+    DATASOURCE = config('DATASOURCE')
+#     MONGODB_USER = 'tannd22'
+#     MONGODB_PASSWORD = '9RkRFEEjG4y5oPti'
+#     DATASOURCE = 'test'
     MONGODB_URL = f'mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@cluster0.k0hrmbm.mongodb.net/test'
     client = MongoClient(MONGODB_URL)
     db=client[DATASOURCE]
