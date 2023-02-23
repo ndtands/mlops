@@ -70,9 +70,9 @@ def main(pages_threads: list, number_thread: int, upload: pymongo.collection.Col
 if __name__ =='__main__':
     # Create the parser
     parser = argparse.ArgumentParser()
-    parser.add_argument('--num_thread', type=int, default=3)
+    parser.add_argument('--num_thread', type=int, default=4)
     parser.add_argument('--start_page', type=int, default=0)
-    parser.add_argument('--end_page', type=int, default=2000)
+    parser.add_argument('--end_page', type=int, default=1500)
 
 
     args = parser.parse_args()
