@@ -41,9 +41,7 @@ def thread_function(pages: list, thread_id: int, upload: pymongo.collection.Coll
                 logger.error(f'Errorr page: {p}, with link: {i}, with err: {str(e)}')
             try:
                 #pass
-                print(post)
                 upload.insert_one(post)
-                print('upload done')
             except Exception as e:
                 logger.error(f'Errorr Upload in page: {p}, with link: {i}, with err: {str(e)}')
         time.sleep(0.09)
@@ -74,19 +72,19 @@ if __name__ =='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_thread', type=int, default=4)
     parser.add_argument('--start_page', type=int, default=0)
-    parser.add_argument('--end_page', type=int, default=4)
+    parser.add_argument('--end_page', type=int, default=1800)
 
 
     args = parser.parse_args()
     number_thread = args.num_thread
     start_page = args.start_page
     end_page = args.end_page
-    MONGODB_USER = config('MONGODB_USER')
-    MONGODB_PASSWORD = config('MONGODB_PASSWORD')
-    DATASOURCE = config('DATASOURCE')
-#     MONGODB_USER = 'tannd22'
-#     MONGODB_PASSWORD = '9RkRFEEjG4y5oPti'
-#     DATASOURCE = 'test'
+#     MONGODB_USER = config('MONGODB_USER')
+#     MONGODB_PASSWORD = config('MONGODB_PASSWORD')
+#     DATASOURCE = config('DATASOURCE')
+    MONGODB_USER = 'tannd22'
+    MONGODB_PASSWORD = '9RkRFEEjG4y5oPti'
+    DATASOURCE = 'final'
     MONGODB_URL = f'mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@cluster0.k0hrmbm.mongodb.net/test'
     client = MongoClient(MONGODB_URL)
     db=client[DATASOURCE]
