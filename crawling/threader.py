@@ -81,9 +81,12 @@ if __name__ =='__main__':
     number_thread = args.num_thread
     start_page = args.start_page
     end_page = args.end_page
-    MONGODB_USER = config('MONGODB_USER')
-    MONGODB_PASSWORD = config('MONGODB_PASSWORD')
-    DATASOURCE = config('DATASOURCE')
+#     MONGODB_USER = config('MONGODB_USER')
+#     MONGODB_PASSWORD = config('MONGODB_PASSWORD')
+#     DATASOURCE = config('DATASOURCE')
+    MONGODB_USER = 'tannd22'
+    MONGODB_PASSWORD = '9RkRFEEjG4y5oPti'
+    DATASOURCE = 'test'
     MONGODB_URL = f'mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@cluster0.k0hrmbm.mongodb.net/test'
     client = MongoClient(MONGODB_URL)
     db=client[DATASOURCE]
